@@ -177,3 +177,32 @@ pip-log.txt
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
+
+
+
+
+
+.idea/*
+/.idea
+/.idea/*
+*/.idea/*
+.idea/workspace.xml
+
+*.gem
+*.rbc
+.bundle
+.config
+coverage
+InstalledFiles
+lib/bundler/man
+pkg
+rdoc
+spec/reports
+test/tmp
+test/version_tmp
+tmp
+
+# YARD artifacts
+.yardoc
+_yardoc
+doc/
