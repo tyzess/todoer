@@ -1,0 +1,33 @@
+<div class="container">
+  <div class="hero-unit">
+  <h1>Create a new ToDo</h1>
+  <p class='lead'>Never forget to buy milk anymore! Create your todo here.</p>
+   </div>
+
+
+    <%= form_for(@todo, :html => { :class => 'form-horizontal' } ) do |f| %>
+      <div class="control-group">
+        <%= f.label(:Title, :class => 'control-label') %>
+        <div class="controls">
+          <%= f.text_field(:title, :placeholder => 'Title', :class => 'input-block-level') %>
+        </div>
+      </div>
+      <div class="control-group">
+        <%= f.label(:Duedate, :class => 'control-label') %>
+        <div class="controls">
+          <%= f.date_select(:due, :placeholder => 'Due Date', :class => 'input-block-level')%>
+        </div>
+      </div>
+      <div class="control-group">
+        <%= f.label(:Description, :class => 'control-label') %>
+        <div class="controls">
+          <%= f.text_area(:description, :placeholder => 'Description', :rows => '3', :class => 'input-block-level') %>
+        </div>
+      </div>
+      <div class="form-actions">
+        <%= f.submit('Create', :class => 'btn btn-large btn-primary') %>
+        <%= f.button('Cancel', :class => 'btn') %>
+      </div>
+    <% end %>
+
+</div>

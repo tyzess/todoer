@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="hero-unit">
+    <h1>ToDo list</h1>
+    <p class='lead'>Because of your bad memory, we keep track of your todos.</p>
+  </div>
+
+  <table class="table table-striped">
+    <% @todos.each do |todo| %>
+        <tr>
+          <td><%= todo.title %></td>
+          <td><%= todo.due %></td>
+          <td><%= todo.description %></td>
+          <td><i class="icon-remove"></i></td>
+        </tr>
+    <% end %>
+  </table>
+
+  <span class="icon-search"></span>
+
+</div>

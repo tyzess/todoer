@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Todoer</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+ <div class="container">
+   <ul class="nav nav-pills">
+     <li><a href="<%= todos_path %>">Home</a></li>
+     <li><a href="<%= new_todo_path %>">New</a></li>
+     <li><a href="<%= todos_path %>">Stuff</a></li>
+     <li></li>
+   </ul>
+ </div>
+
+ <%= yield %>
+
+</body>
+</html>
