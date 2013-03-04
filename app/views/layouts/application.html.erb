@@ -1,23 +1,56 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <title>Todoer</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
+
 <body>
 
- <div class="container">
-   <ul class="nav nav-pills">
-     <li><a href="<%= todos_path %>">Home</a></li>
-     <li><a href="<%= new_todo_path %>">New</a></li>
-     <li><a href="<%= todos_path %>">Stuff</a></li>
-     <li></li>
-   </ul>
- </div>
+  <div class="container">
 
- <%= yield %>
+    <div class="hero-unit">
+      <h1><%= @page_title %></h1>
+      <p class='lead'><%= @page_lead_text %></p>
+    </div>
+
+    <div class="container">
+      <ul class="nav nav-pills">
+        <li><a href="<%= todos_path %>">Home</a></li>
+        <li><a href="<%= new_todo_path %>">New</a></li>
+        <li><a href="#">Stuff</a></li>
+        <li></li>
+      </ul>
+    </div>
+
+    <% if flash[:notice] %>
+      <div class="alert alert-success">
+        <a class="close" href="#">×</a>
+        <%= flash[:notice] %>
+        <% if flash[:undo_file] %>
+          <%= button_to 'Restore deleted todo...fast! You can save it!', restore_todo_path, :class => "btn btn-mini", method: :post %>
+        <% end %>
+      </div>
+    <% end %>
+
+    <% if flash[:error] %>
+        <div class="alert alert-error">
+          <a class="close" href="#">×</a>
+          <%= flash[:error] %>
+        </div>
+    <% end %>
+
+    <%= yield %>
+
+    <hr></hr>
+    <footer>
+      <p>&copy; Todoer</p>
+    </footer>
+
+  </div>
 
 </body>
 </html>

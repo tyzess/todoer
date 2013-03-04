@@ -1,20 +1,21 @@
-<div class="container">
-  <div class="hero-unit">
-    <h1>ToDo list</h1>
-    <p class='lead'>Because of your bad memory, we keep track of your todos.</p>
-  </div>
+<% @page_title = 'ToDo list' %>
+<% @page_lead_text = 'Because of your bad memory, we keep track of your todos.' %>
 
-  <table class="table table-striped">
-    <% @todos.each do |todo| %>
-        <tr>
-          <td><%= todo.title %></td>
-          <td><%= todo.due %></td>
-          <td><%= todo.description %></td>
-          <td><i class="icon-remove"></i></td>
-        </tr>
-    <% end %>
-  </table>
 
-  <span class="icon-search"></span>
-
-</div>
+<table class="table table-striped">
+  <% @todos.each do |todo| %>
+    <tr>
+      <td><%= todo.title %></td>
+      <td><%= todo.due.inspect %></td>
+      <td><%= todo.description.first(20) %></td>
+      <td>
+        <div class="btn-toolbar">
+          <div class="btn-group">
+            <%= link_to '<i class="icon icon-edit"></i>edit'.html_safe, todo_path(todo), :class => 'btn' %>
+            <%= link_to '<i class="icon icon-remove icon-white"></i>delete'.html_safe, todo, :class => "btn btn-danger", method: :delete %>
+          </div>
+        </div>
+      </td>
+    </tr>
+  <% end %>
+</table>

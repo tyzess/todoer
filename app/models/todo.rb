@@ -5,4 +5,7 @@ class Todo
   field :due, type: Date
   field :description, type: String
 
+
+  validates :title, :presence => true
+
 end

@@ -8,9 +8,11 @@ Todoer::Application.routes.draw do
 
   post 'todos' => 'todos#create'
 
-  get 'todos/:id' => 'todo#show'
+  get 'todos/:id' => 'todo#show', as: 'todo'
 
-  delete 'todos/:id' => 'todos#delete'
+  delete 'todos/:id' => 'todos#delete', as: 'todo'
+
+  post 'todos/undo' => 'todos#restore', as: 'restore_todo'
 
 
 
