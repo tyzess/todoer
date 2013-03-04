@@ -41,8 +41,7 @@ class TodosController < ApplicationController
   # Creates the to-do if possible, otherwise it redirects to the creation aka 'new' form
   def create
     @todo = Todo.new(params[:todo])
-    puts '----------------------------'
-    puts @todo.due.inspect
+    @todo.due_date = DateTime.new(params[:todo]["due_date(1i)"].to_i, params[:todo]["due_date(2i)"].to_i, params[:todo]["due_date(3i)"].to_i)
     if @todo.save
       redirect_to todos_path, notice: 'Successfully created new todo'
     else

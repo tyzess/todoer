@@ -27,18 +27,20 @@
     </div>
 
     <% if flash[:notice] %>
-      <div class="alert alert-success">
-        <a class="close" href="#">×</a>
-        <%= flash[:notice] %>
-        <% if flash[:undo_file] %>
-          <%= button_to 'Restore deleted todo...fast! You can save it!', restore_todo_path, :class => "btn btn-mini", method: :post %>
-        <% end %>
+      <div class="alert alert-block">
+        <a class="close" data-dismiss="alert" href="#">x</a>
+        <h4>
+          <%= flash[:notice] %>
+          <% if flash[:undo_file] %>
+            <%= button_to 'Restore deleted todo...fast! You can save it!', restore_todo_path, :class => "btn btn-mini pull-right", method: :post %>
+          <% end %>
+        </h4>
       </div>
     <% end %>
 
     <% if flash[:error] %>
         <div class="alert alert-error">
-          <a class="close" href="#">×</a>
+          <a class="close" data-dismiss="alert" href="#">x</a>
           <%= flash[:error] %>
         </div>
     <% end %>

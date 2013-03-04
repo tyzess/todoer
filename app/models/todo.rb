@@ -2,10 +2,10 @@ class Todo
   include Mongoid::Document
 
   field :title, type: String
-  field :due, type: Date
+  field :due_date, type: Date
   field :description, type: String
 
 
-  validates :title, :presence => true
+  validates :title, :due_date, :presence => true
 
 end

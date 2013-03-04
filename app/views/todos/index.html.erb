@@ -6,7 +6,7 @@
   <% @todos.each do |todo| %>
     <tr>
       <td><%= todo.title %></td>
-      <td><%= todo.due.inspect %></td>
+      <td><%= todo.due_date %></td>
       <td><%= todo.description.first(20) %></td>
       <td>
         <div class="btn-toolbar">
