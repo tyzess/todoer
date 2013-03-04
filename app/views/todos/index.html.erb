@@ -3,11 +3,17 @@
 
 
 <table class="table table-striped">
+  <tr>
+    <th>Title</th>
+    <th>Due Date</th>
+    <th>Description</th>
+    <th>Actions</th>
+  </tr>
   <% @todos.each do |todo| %>
     <tr>
       <td><%= todo.title %></td>
-      <td><%= todo.due_date %></td>
-      <td><%= todo.description.first(20) %></td>
+      <td><%= todo.due_date.inspect %></td>
+      <td><%= todo.description.first(20) %><%= '...' if todo.description.length > 20 %></td>
       <td>
         <div class="btn-toolbar">
           <div class="btn-group">

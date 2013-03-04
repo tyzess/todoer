@@ -27,14 +27,19 @@ class TodosController < ApplicationController
     #todo lol, what sense of humor ;)
   end
 
+  # Deletes a to-do with the same id
   def delete
     @todo = Todo.find(params[:id])
     @@backup = @todo.clone
     if @todo.destroy
-      flash[:undo_file] = true
-      redirect_to todos_path, notice: 'Successfully deleted todo'
+      flash[:type] = 'success'
+      flash[:title] = 'Successfully deleted todo'
+      flash[:options] = {:content => 'Restore', :class => 'btn btn-small pull-right', :href => restore_todo_path, :method => 'post'}
+      redirect_to todos_path
     else
-      redirect_to todos_path, error: 'Could not delete todo'
+      flash[:type] = 'error'
+      flash[:title] = 'Could not delete todo'
+      redirect_to todos_path
     end
   end
 
@@ -43,16 +48,21 @@ class TodosController < ApplicationController
     @todo = Todo.new(params[:todo])
     @todo.due_date = DateTime.new(params[:todo]["due_date(1i)"].to_i, params[:todo]["due_date(2i)"].to_i, params[:todo]["due_date(3i)"].to_i)
     if @todo.save
-      redirect_to todos_path, notice: 'Successfully created new todo'
+      flash[:type] = 'success'
+      flash[:title] = 'Successfully created new todo'
+      redirect_to todos_path
     else
-      flash[:error] = 'Could not create the todo'
+      flash[:type] = 'error'
+      flash[:title] = 'Could not create the todo'
       render :new
     end
   end
 
+  # Restores the latest deleted to-do that has been backup'd in the global backup variable
   def restore
     if @@backup.save
-     redirect_to todos_path, notice: 'Successfully restored todo'
+      @@backup = nil
+      redirect_to todos_path, notice: 'Successfully restored todo'
     else
       redirect_to todos_path, notice: 'Could not restore todo, sorry man!'
     end
