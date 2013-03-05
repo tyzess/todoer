@@ -9,7 +9,7 @@ class TodosController < ApplicationController
 
   # Passes an array with all to-dos to list them
   def index
-    @todos = Todo.all
+    @todos = Todo.all.sort{ |a,b| a.due_date <=> b.due_date }
   end
 
   # Passes the to-do that shall be displayed
@@ -33,12 +33,12 @@ class TodosController < ApplicationController
     @@backup = @todo.clone
     if @todo.destroy
       flash[:type] = 'success'
-      flash[:title] = 'Successfully deleted todo'
+      flash[:title] = 'Successfully deleted todo "' + @todo.title + '"'
       flash[:options] = {:content => 'Restore', :class => 'btn btn-small pull-right', :href => restore_todo_path, :method => 'post'}
       redirect_to todos_path
     else
       flash[:type] = 'error'
-      flash[:title] = 'Could not delete todo'
+      flash[:title] = 'Could not delete todo "' + @todo.title + '"'
       redirect_to todos_path
     end
   end
@@ -49,7 +49,7 @@ class TodosController < ApplicationController
     @todo.due_date = DateTime.new(params[:todo]["due_date(1i)"].to_i, params[:todo]["due_date(2i)"].to_i, params[:todo]["due_date(3i)"].to_i)
     if @todo.save
       flash[:type] = 'success'
-      flash[:title] = 'Successfully created new todo'
+      flash[:title] = 'Successfully created new todo "' + @todo.title + '"'
       redirect_to todos_path
     else
       flash[:type] = 'error'
@@ -61,10 +61,14 @@ class TodosController < ApplicationController
   # Restores the latest deleted to-do that has been backup'd in the global backup variable
   def restore
     if @@backup.save
+      flash[:type] = 'success'
+      flash[:title] = 'Successfully restored todo "' + @@backup.title + '"'
       @@backup = nil
-      redirect_to todos_path, notice: 'Successfully restored todo'
+      redirect_to todos_path
     else
-      redirect_to todos_path, notice: 'Could not restore todo, sorry man!'
+      flash[:type] = 'error'
+      flash[:title] = 'Could not restore todo, sorry man!'
+      redirect_to todos_path
     end
   end
 

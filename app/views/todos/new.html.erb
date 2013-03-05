@@ -1,25 +1,36 @@
+<% @page = 'new' %>
 <% @page_title = 'Create a new ToDo' %>
 <% @page_lead_text = 'Never forget to buy milk anymore! Create your todo here.' %>
 
 
 <%= form_for(@todo, :html => { :class => 'form-horizontal' } ) do |f| %>
-
   <div class="control-group">
-    <%= f.label(:Title, :class => 'control-label') %>
+    <%= f.label('Title', :class => 'control-label') %>
     <div class="controls">
       <%= f.text_field(:title, :placeholder => 'Title', :class => 'input-block-level') %>
     </div>
   </div>
 
   <div class="control-group">
-    <%= f.label(:Due_date, :class => 'control-label') %>
+    <%= f.label('Due Date', :class => 'control-label') %>
     <div class="controls">
       <%= f.date_select(:due_date, :placeholder => 'Due Date', :class => 'input-block-level', :order => [:day, :month, :year])%>
     </div>
   </div>
 
   <div class="control-group">
-    <%= f.label(:Description, :class => 'control-label') %>
+    <%= f.label('Due Time', :class => 'control-label') %>
+    <%= f.check_box(:due_time?, :class => 'control-label', :'data-toggle' => 'collapse', :'data-target' => '#time') %>
+    <div id='time' class='control-group collapse out'>
+      <%= f.label('Due Time', :class => 'control-label') %>
+      <div class="controls">
+        <%= f.time_select(:due_time, :placeholder => 'Due Time', :class => 'input-block-level')%>
+      </div>
+    </div>
+  </div>
+
+  <div class="control-group">
+    <%= f.label('Description', :class => 'control-label') %>
     <div class="controls">
       <%= f.text_area(:description, :placeholder => 'Description', :rows => '3', :class => 'input-block-level') %>
     </div>
@@ -29,5 +40,4 @@
     <%= f.submit('Create', :class => 'btn btn-large btn-primary') %>
     <%= f.button('Cancel', :class => 'btn') %>
   </div>
-
 <% end %>

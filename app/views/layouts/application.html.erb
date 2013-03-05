@@ -19,9 +19,9 @@
 
     <div class="container">
       <ul class="nav nav-pills">
-        <li><a href="<%= todos_path %>">Home</a></li>
-        <li><a href="<%= new_todo_path %>">New</a></li>
-        <li><a href="#">Stuff</a></li>
+        <li class="<%= 'active' if @page == 'index' %>"><a href="<%= todos_path %>">Home</a></li>
+        <li class="<%= 'active' if @page == 'new' %>"><a href="<%= new_todo_path %>">New</a></li>
+        <li class="<%= 'active' if @page == '' %>"><a href="#">Stuff</a></li>
         <li></li>
       </ul>
     </div>
@@ -32,7 +32,7 @@
 
     <hr></hr>
     <footer>
-      <p>&copy; Todoer</p>
+      <p>&copy; Todoer by Urs Zysset</p>
     </footer>
 
   </div>
