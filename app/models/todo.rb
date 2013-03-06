@@ -2,26 +2,21 @@ class Todo
   include Mongoid::Document
 
   field :title, type: String
-  field :due_date, type: Date
-  field :due_time?, type: Boolean
-  field :due_time, type: Time
+  field :due_date, type: DateTime
+  field :has_due_time, type: Boolean
   field :description, type: String
 
 
-  validates :title, :due_date, :due_time?, :presence => true
+  validates :title, :due_date, :has_due_time, :presence => true
 
   # Checks if the due_date (and if existing due_time) is already past
   def overdue?
-    if due_time?
-      due_date.past? and due_time.past?
-    else
-      due_date.past?
-    end
+    due_date.past?
   end
 
   def due
-    if due_time?
-      due_date.inspect + due_time.inspect
+    if has_due_time
+      due_date.inspect
     else
       due_date.inspect
     end

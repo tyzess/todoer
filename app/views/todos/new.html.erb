@@ -2,20 +2,9 @@
 <% @page_title = 'Create a new ToDo' %>
 <% @page_lead_text = 'Never forget to buy milk anymore! Create your todo here.' %>
 
-<script type="text/javascript">
-
-    $('.control-group .controls .btn').on('click', function(e) {
-                e.preventDefault();
-                var $this = $(this);
-                var $collapse = $this.closest('.collapse-group').find('.collapse');
-                $collapse.collapse('toggle');
-            }
-    );
-
-</script>
-
 
 <%= form_for(@todo, :html => { :class => 'form-horizontal' } ) do |f| %>
+
   <div class="control-group">
     <%= f.label('Title', :class => 'control-label') %>
     <div class="controls">
@@ -30,22 +19,18 @@
     </div>
   </div>
 
-    <div class="switch">
-      <input type="checkbox">
-    </div>
-
   <div class="control-group">
     <div class='control-group'>
       <%= f.label('Due Time', :class => 'control-label') %>
       <div class="controls">
-        <button class="btn btn-small" data-toggle='button' type='button'>press he hard!</button>
-        <%= f.button('klick mi du perverse sack', :class => 'btn btn-small', :'data-toggle' => 'button', :type => 'button') %>
+        <div id="due_date_switch"  class="switch switch-mini">
+          <%= f.check_box :'has_due_time' %>
         </div>
+      </div>
     </div>
-    <div class='collapse out'>
-      <%= f.label('Due Time', :class => 'control-label') %>
+    <div id="due_time_form" class='collapse'>
       <div class="controls">
-        <%= f.time_select(:due_time, :placeholder => 'Due Time', :class => 'input-block-level')%>
+        <%= f.time_select(:due_date, :placeholder => 'Due Time', :class => 'input-block-level', :order => [:minute, :hour])%>
       </div>
     </div>
   </div>
@@ -62,3 +47,18 @@
     <%= f.button('Cancel', :class => 'btn') %>
   </div>
 <% end %>
+
+<p id="ttes">sdasd</p>
+
+<script>
+
+  $('#due_date_switch').on('switch-change', function (e, data) {
+    var $el = $(data.el), value = data.value;
+    if(value) {
+      $('#due_time_form').collapse('show');
+    } else {
+      $('#due_time_form').collapse('hide');
+    }
+  });
+
+</script>

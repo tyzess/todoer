@@ -8,7 +8,7 @@ Todoer::Application.routes.draw do
 
   post 'todos' => 'todos#create'
 
-  get 'todos/:id' => 'todo#show', as: 'todo'
+  get 'todos/:id' => 'todos#show', as: 'todo'
 
   delete 'todos/:id' => 'todos#delete', as: 'todo'
 
