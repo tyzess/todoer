@@ -2,6 +2,18 @@
 <% @page_title = 'Create a new ToDo' %>
 <% @page_lead_text = 'Never forget to buy milk anymore! Create your todo here.' %>
 
+<script type="text/javascript">
+
+    $('.control-group .controls .btn').on('click', function(e) {
+                e.preventDefault();
+                var $this = $(this);
+                var $collapse = $this.closest('.collapse-group').find('.collapse');
+                $collapse.collapse('toggle');
+            }
+    );
+
+</script>
+
 
 <%= form_for(@todo, :html => { :class => 'form-horizontal' } ) do |f| %>
   <div class="control-group">
@@ -18,10 +30,19 @@
     </div>
   </div>
 
+    <div class="switch">
+      <input type="checkbox">
+    </div>
+
   <div class="control-group">
-    <%= f.label('Due Time', :class => 'control-label') %>
-    <%= f.check_box(:due_time?, :class => 'control-label', :'data-toggle' => 'collapse', :'data-target' => '#time') %>
-    <div id='time' class='control-group collapse out'>
+    <div class='control-group'>
+      <%= f.label('Due Time', :class => 'control-label') %>
+      <div class="controls">
+        <button class="btn btn-small" data-toggle='button' type='button'>press he hard!</button>
+        <%= f.button('klick mi du perverse sack', :class => 'btn btn-small', :'data-toggle' => 'button', :type => 'button') %>
+        </div>
+    </div>
+    <div class='collapse out'>
       <%= f.label('Due Time', :class => 'control-label') %>
       <div class="controls">
         <%= f.time_select(:due_time, :placeholder => 'Due Time', :class => 'input-block-level')%>
