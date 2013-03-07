@@ -1,27 +1,27 @@
 <% @page = 'new' %>
-<% @page_title = 'Create a new ToDo' %>
-<% @page_lead_text = 'Never forget to buy milk anymore! Create your todo here.' %>
+<% @page_title = t(:page_new_title) %>
+<% @page_lead_text = t(:page_new_lead) %>
 
 
 <%= form_for(:todo, :url => '/todos', :html => { :class => 'form-horizontal' } ) do |f| %>
 
   <div class="control-group">
-    <%= f.label('Title', :class => 'control-label') %>
+    <%= f.label( t(:new_title), :class => 'control-label') %>
     <div class="controls">
-      <%= f.text_field(:title, :placeholder => 'Title', :class => 'input-block-level') %>
+      <%= f.text_field(:title, :placeholder => t(:new_title), :class => 'input-block-level') %>
     </div>
   </div>
 
   <div class="control-group">
-    <%= f.label('Due Date', :class => 'control-label') %>
+    <%= f.label( t(:new_due_date), :class => 'control-label') %>
     <div class="controls">
-      <%= f.date_select(:due_date, :placeholder => 'Due Date', :class => 'input-block-level', :order => [:day, :month, :year])%>
+      <%= f.date_select(:due_date, :placeholder => t(:new_due_date), :class => 'input-block-level', :order => [:day, :month, :year])%>
     </div>
   </div>
 
   <div class="control-group">
     <div class='control-group'>
-      <%= f.label('Due Time', :class => 'control-label') %>
+      <%= f.label( t(:new_due_time), :class => 'control-label') %>
       <div class="controls">
         <div id="due_date_switch"  class="switch switch-mini">
           <%= f.check_box :'has_due_time' %>
@@ -30,29 +30,26 @@
     </div>
     <div id="due_time_form" class='collapse'>
       <div class="controls">
-        <%= time_select(:due_time, "due_time", :placeholder => 'Due Time', :class => 'input-block-level', :order => [:minute, :hour],
-                          :discard_month => true,
-                          :discard_day => true,
-                          :discard_year => true)%>
+        <%= f.time_select(:due_time, :placeholder => 'Due Time', :class => 'input-block-level', :order => [:minute, :hour]) %>
       </div>
     </div>
   </div>
 
   <div class="control-group">
-    <%= f.label('Description', :class => 'control-label') %>
+    <%= f.label( t(:new_description), :class => 'control-label') %>
     <div class="controls">
-      <%= f.text_area(:description, :placeholder => 'Description', :rows => '3', :class => 'input-block-level') %>
+      <%= f.text_area(:description, :placeholder => t(:new_description), :rows => '3', :class => 'input-block-level') %>
     </div>
   </div>
 
   <div class="form-actions">
-    <%= f.submit('Create', :class => 'btn btn-large btn-primary') %>
-    <%= f.button('Cancel', :class => 'btn') %>
+    <%= f.submit( t(:new_submit), :class => 'btn btn-large btn-primary') %>
+    <%= f.button( t(:new_cancel), :class => 'btn') %>
   </div>
+
 <% end %>
 
 <script>
-
   $('#due_date_switch').on('switch-change', function (e, data) {
     var $el = $(data.el), value = data.value;
     if(value) {
@@ -61,5 +58,4 @@
       $('#due_time_form').collapse('hide');
     }
   });
-
 </script>

@@ -7,7 +7,7 @@ class Todo
   field :description, type: String
 
 
-  validates :title, :due_date, :has_due_time, :presence => true
+  validates :title, :due_date, :presence => true
 
   # Checks if the due_date (and if existing due_time) is already past
   def overdue?
@@ -16,9 +16,9 @@ class Todo
 
   def due
     if has_due_time
-      due_date.inspect
+      due_date.strftime('%d.%m.%Y at %k:%M')
     else
-      due_date.inspect
+      due_date.strftime('%d.%m.%Y')
     end
   end
 

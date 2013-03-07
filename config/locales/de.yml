@@ -1,0 +1,55 @@
+# Sample localization file for German. Add more files in this directory for other locales.
+# See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
+
+de:
+
+#PAGES
+  page_new_title: "Erstelle ein neues ToDo"
+  page_new_lead: "Vergiss nie wieder Milch zu kaufen! Jeden Morgen Kellog`s!"
+
+  page_index_title: "ToDo Liste"
+  page_index_lead: "Da du so ein schlechtes Gedächtnis hast, speichern WIR deine Todos."
+
+  page_edit_title:
+  page_edit_lead:
+
+  page_show_title:
+  page_show_lead:
+
+  page_menu_home: "Home"
+  page_menu_new: "Neu"
+
+  page_copyright: "Todoer by Urs Zysset"
+
+
+  #INDEX
+  table_title: "Titel"
+  table_due_date: "Termin"
+  table_description: "Beschreibung"
+  table_actions: "Aktionen"
+
+  table_tag_overdue: "Überfällig"
+
+
+  #NEW
+  new_title: "Titel"
+  new_due_date: "Datum"
+  new_due_time: "Uhrzeit"
+  new_description: "Beschreibung"
+  new_submit: "Erstellen"
+  new_cancel: "Abbrechen"
+
+
+  #MESSAGES
+  successful_create_todo: "'%{todo}' wurde erfolgreich erstellt."
+  unsuccessful_create_todo: "Todo konnte nicht erstellt werden!"
+
+  successful_restore_todo: "'%{todo}' erfolgreich wiederhergestellt."
+  unsuccessful_restore_todo: "Es tut mir so leid.... Wiederherstellung fehlgeschlagen!"
+  restore_button: "Wiederherstellen"
+
+  successful_delete_todo: "'%{todo}' wurde erfolgreich gelöscht!"
+  unsuccessful_delete_todo: "'%{todo}' konnte nicht gelöscht werden!"
+
+
+

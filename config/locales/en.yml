@@ -2,4 +2,53 @@
 # See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
-  hello: "Hello world"
+
+  #PAGES
+  page_new_title: "Create a new ToDo"
+  page_new_lead: "Never forget to buy milk anymore! Create your todo here."
+
+  page_index_title: "ToDo list"
+  page_index_lead: "Because of your bad memory, we keep track of your todos."
+
+  page_edit_title:
+  page_edit_lead:
+
+  page_show_title:
+  page_show_lead:
+
+  page_menu_home: "Home"
+  page_menu_new: "New"
+
+  page_copyright: "Todoer by Urs Zysset"
+
+
+  #INDEX
+  table_title: "Title"
+  table_due_date: "Due Date"
+  table_description: "Description"
+  table_actions: "Actions"
+
+  table_tag_overdue: "Overdue"
+
+
+  #NEW
+  new_title: "Title"
+  new_due_date: "Due Date"
+  new_due_time: "Due Time"
+  new_description: "Description"
+  new_submit: "Create"
+  new_cancel: "Cancel"
+
+
+  #MESSAGES
+  successful_create_todo: "Successfully created new todo '%{todo}'"
+  unsuccessful_create_todo: "Could not create new todo"
+
+  successful_restore_todo: "Successfully restored todo '%{todo}'"
+  unsuccessful_restore_todo: "Sorry man... it was too late..."
+  restore_button: "Restore"
+
+  successful_delete_todo: "You successfully deleted '%{todo}'"
+  unsuccessful_delete_todo: "Could not delete '%{todo}'"
+
+
