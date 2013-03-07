@@ -51,14 +51,18 @@ class TodosController < ApplicationController
     @new_todo.has_due_time = params[:todo][:has_due_time]
     if @new_todo.has_due_time
       @new_todo.due_date = DateTime.new(params[:todo]['due_date(1i)'].to_i,
-                                    params[:todo]['due_date(2i)'].to_i,
-                                    params[:todo]['due_date(3i)'].to_i,
-                                    params[:todo]['due_time(4i)'].to_i,
-                                    params[:todo]['due_time(5i)'].to_i)
+                                        params[:todo]['due_date(2i)'].to_i,
+                                        params[:todo]['due_date(3i)'].to_i,
+                                        params[:todo]['due_time(4i)'].to_i-1,
+                                        params[:todo]['due_time(5i)'].to_i)
+      # ---------------DEV NOTICE------------------
+      # Die Lokalisation fick mich im Moment. Iwie muss ich DateTime sagen, dass es
+      # auch wenn es versteht dass alle zeiten in der +01:00 Zeitzone sind nicht mit
+      # einer Stunde addiert werden müssen
     else
       @new_todo.due_date = DateTime.new(params[:todo]['due_date(1i)'].to_i,
-                                    params[:todo]['due_date(2i)'].to_i,
-                                    params[:todo]['due_date(3i)'].to_i)
+                                        params[:todo]['due_date(2i)'].to_i,
+                                        params[:todo]['due_date(3i)'].to_i)
     end
 
     if @new_todo.save

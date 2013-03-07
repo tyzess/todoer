@@ -15,7 +15,7 @@
   <div class="control-group">
     <%= f.label( t(:new_due_date), :class => 'control-label') %>
     <div class="controls">
-      <%= f.date_select(:due_date, :placeholder => t(:new_due_date), :class => 'input-block-level', :order => [:day, :month, :year])%>
+      <%= f.date_select(:due_date, :class => 'input-block-level', :order => [:day, :month, :year], :start_year => Date.today.year)%>
     </div>
   </div>
 
@@ -23,14 +23,14 @@
     <div class='control-group'>
       <%= f.label( t(:new_due_time), :class => 'control-label') %>
       <div class="controls">
-        <div id="due_date_switch"  class="switch switch-mini">
+        <div id="due_date_switch"  class="switch switch-mini" data-on-label="<i class='icon-ok icon-white'></i>" data-off-label="<i class='icon-remove'></i>">
           <%= f.check_box :'has_due_time' %>
         </div>
       </div>
     </div>
     <div id="due_time_form" class='collapse'>
       <div class="controls">
-        <%= f.time_select(:due_time, :placeholder => 'Due Time', :class => 'input-block-level', :order => [:minute, :hour]) %>
+        <%= f.time_select(:due_time, :class => 'input-block-level', :order => [:minute, :hour]) %>
       </div>
     </div>
   </div>
@@ -44,7 +44,7 @@
 
   <div class="form-actions">
     <%= f.submit( t(:new_submit), :class => 'btn btn-large btn-primary') %>
-    <%= f.button( t(:new_cancel), :class => 'btn') %>
+    <%= link_to( t(:new_cancel), todos_path, :class => 'btn') %>
   </div>
 
 <% end %>

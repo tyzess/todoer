@@ -3,12 +3,12 @@
 
 de:
 
-#PAGES
+  #PAGES
   page_new_title: "Erstelle ein neues ToDo"
   page_new_lead: "Vergiss nie wieder Milch zu kaufen! Jeden Morgen Kellog`s!"
 
   page_index_title: "ToDo Liste"
-  page_index_lead: "Da du so ein schlechtes Gedächtnis hast, speichern WIR deine Todos."
+  page_index_lead: "Da dein Gedächnis so schlecht ist, speichern WIR deine Todos."
 
   page_edit_title:
   page_edit_lead:
@@ -52,4 +52,75 @@ de:
   unsuccessful_delete_todo: "'%{todo}' konnte nicht gelöscht werden!"
 
 
+  date:
+    formats:
+      default: "%d.%m.%Y"
+      short: "%e. %b"
+      long: "%e. %B %Y"
+      only_day: "%e"
 
+    day_names: [Sonntag, Montag, Dienstag, Mittwoch, Donnerstag, Freitag, Samstag]
+    abbr_day_names: [So, Mo, Di, Mi, Do, Fr, Sa]
+    month_names: [~, Januar, Februar, März, April, Mai, Juni, Juli, August, September, Oktober, November, Dezember]
+    abbr_month_names: [~, Jan, Feb, Mär, Apr, Mai, Jun, Jul, Aug, Sep, Okt, Nov, Dez]
+
+  time:
+    formats:
+      default: "%A, %e. %B %Y, %H:%M Uhr"
+      time: "%H:%M Uhr"
+      short: "%e. %B, %H:%M Uhr"
+      long: "%A, %e. %B %Y, %H:%M Uhr"
+      only_second: "%S"
+
+      datetime:
+        formats:
+          default: "%A, %e. %B %Y, %H:%M Uhr"
+
+    am: ""
+    pm: ""
+
+  datetime:
+    distance_in_words:
+      half_a_minute: 'eine halbe Minute'
+      less_than_x_seconds:
+        zero: 'weniger als 1 Sekunde'
+        one: '1 Sekunde'
+        other: '{{count}} Sekunden'
+      x_seconds:
+        one: '1 Sekunde'
+        other: '{{count}} Sekunden'
+      less_than_x_minutes:
+        zero: 'weniger als 1 Minute'
+        one: 'eine Minute'
+        other: '{{count}} Minuten'
+      x_minutes:
+        one: '1 Minute'
+        other: '{{count}} Minuten'
+      about_x_hours:
+        one: 'etwa 1 Stunde'
+        other: '{{count}} Stunden'
+      x_days:
+        one: '1 Tag'
+        other: '{{count}} Tage'
+      about_x_months:
+        one: 'etwa 1 Monat'
+        other: '{{count}} Monate'
+      x_months:
+        one: '1 Monat'
+        other: '{{count}} Monate'
+      about_x_years:
+        one: 'etwa 1 Jahr'
+        other: '{{count}} Jahre'
+      over_x_years:
+        one: 'mehr als 1 Jahr'
+        other: '{{count}} Jahre'
+
+  number:
+    format:
+      precision: 2
+      separator: ','
+      delimiter: '.'
+    currency:
+      format:
+        unit: '€'
+        format: '%n%u'

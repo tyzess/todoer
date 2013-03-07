@@ -14,12 +14,20 @@ class Todo
     due_date.past?
   end
 
-  def due
+  def datetime
     if has_due_time
-      due_date.strftime('%d.%m.%Y at %k:%M')
+      self.date + " " + self.time
     else
-      due_date.strftime('%d.%m.%Y')
+      self.date
     end
+  end
+
+  def date
+    I18n.localize(due_date.to_date)
+  end
+
+  def time
+    I18n.localize(due_date, :format => :'time')
   end
 
   def description_with_size(size)

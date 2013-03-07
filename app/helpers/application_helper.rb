@@ -19,5 +19,4 @@ module ApplicationHelper
     content_tag :div, t5, :class => "alert alert-#{type}"
   end
 
-
 end

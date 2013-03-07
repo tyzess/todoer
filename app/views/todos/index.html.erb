@@ -13,7 +13,7 @@
   <% @todos.each do |todo| %>
     <tr>
       <td><%= todo.title %></td>
-      <td><%= todo.due %>
+      <td><%= todo.datetime %>
         <% if todo.overdue? %>
           <span class="label label-important pull-right"> <%= t(:table_tag_overdue) %></span>
         <% end %>
