@@ -3,7 +3,7 @@
 <% @page_lead_text = t(:page_new_lead) %>
 
 
-<%= form_for(:todo, :url => '/todos', :html => { :class => 'form-horizontal' } ) do |f| %>
+<%= form_for(:todo, :url => "/todos?locale=" + params[:locale], :html => { :class => 'form-horizontal' } ) do |f| %>
 
   <div class="control-group">
     <%= f.label( t(:new_title), :class => 'control-label') %>
