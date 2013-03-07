@@ -53,8 +53,8 @@ class TodosController < ApplicationController
       @todo.due_date = DateTime.new(params[:todo]["due_date(1i)"].to_i,
                                     params[:todo]["due_date(2i)"].to_i,
                                     params[:todo]["due_date(3i)"].to_i,
-                                    params[:todo]['due_date(4i)'].to_i,
-                                    params[:todo]['due_date(5i)'].to_i)
+                                    params[:due_time]['due_time(4i)'].to_i,
+                                    params[:due_time]['due_time(5i)'].to_i)
     else
       @todo.due_date = DateTime.new(params[:todo]["due_date(1i)"].to_i,
                                     params[:todo]["due_date(2i)"].to_i,

@@ -3,7 +3,7 @@
 <% @page_lead_text = 'Never forget to buy milk anymore! Create your todo here.' %>
 
 
-<%= form_for(@todo, :html => { :class => 'form-horizontal' } ) do |f| %>
+<%= form_for(:todo, :url => '/todos', :html => { :class => 'form-horizontal' } ) do |f| %>
 
   <div class="control-group">
     <%= f.label('Title', :class => 'control-label') %>
@@ -30,7 +30,10 @@
     </div>
     <div id="due_time_form" class='collapse'>
       <div class="controls">
-        <%= f.time_select(:due_date, :placeholder => 'Due Time', :class => 'input-block-level', :order => [:minute, :hour])%>
+        <%= time_select(:due_time, "due_time", :placeholder => 'Due Time', :class => 'input-block-level', :order => [:minute, :hour],
+                          :discard_month => true,
+                          :discard_day => true,
+                          :discard_year => true)%>
       </div>
     </div>
   </div>
@@ -47,8 +50,6 @@
     <%= f.button('Cancel', :class => 'btn') %>
   </div>
 <% end %>
-
-<p id="ttes">sdasd</p>
 
 <script>
 
